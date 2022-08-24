@@ -10,14 +10,19 @@ function nextSequence() {
     gamePattern.push(randomChosenColour);
 
     $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
+    playSound(randomChosenColour);
 
-    var audio = new Audio("sounds/" + randomChosenColour + ".mp3");
-    audio.play;
 }
 
 
 $(".btn").click(function (e) {
     var userChosenColour = (e.currentTarget.id);
     userClickedPattern.push(userChosenColour);
+    $("#" + userChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
+    playSound(userChosenColour);
 });
 
+function playSound(name) {
+    var audio = new Audio("sounds/" + name + ".mp3");
+    audio.play;
+}
